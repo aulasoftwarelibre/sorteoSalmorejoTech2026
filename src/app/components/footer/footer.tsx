@@ -107,20 +107,6 @@ export default function Footer({ isVisible }: FooterProps) {
         </div>
       </div>
 
-      <div className={styles.notifyContainer}>
-        <h2 className={styles.notifyText}>
-          ¿Quieres que te notifiquemos sobre novedades del SalmorejoTech?
-        </h2>
-        <a
-          href="https://mailchi.mp/4de2bca2a936/notificaciones-sobre-el-salmorejotech-2026"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.notifybutton}
-        >
-          NOTIFÍCAME
-        </a>
-      </div>
-
       <div className={styles.merch}>
         <p className={styles.merchText}>🄯 2025 Aula Software Libre</p>
       </div>

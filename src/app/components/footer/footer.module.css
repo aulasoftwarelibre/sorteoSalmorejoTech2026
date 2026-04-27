@@ -70,25 +70,7 @@
   justify-self: end;
 }
 
-@media (max-width: 1000px) {
-  .footer {
-    column-gap: 15%;
-    width: 80%;
-  }
 
-  .text {
-    font-size: 1.5em;
-  }
-
-  .info {
-    justify-self: center;
-  }
-
-  .textContainer {
-    max-width: 30em;
-    justify-self: center;
-  }
-}
 
 .rrssContainer {
   display: grid;
@@ -99,11 +81,7 @@
   padding: 1.5em 0.6em;
 }
 
-@media (max-width: 500px) {
-  .image {
-    padding: 1em 0.4em;
-  }
-}
+
 
 .merch {
   justify-self: center;
@@ -129,76 +107,3 @@
 .aslLink:hover {
   transform: scale(1.2);
 }
-
-.notifyContainer {
-  justify-self: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  max-width: 1000px;
-  margin-bottom: 2em;
-}
-
-.notifyText {
-  color: white;
-  text-align: center;
-  font-size: 2em;
-  font-family: var(--font-oswald);
-  opacity: 80%;
-  font-weight: 400;
-  padding: 0.2em;
-  line-height: 1.2;
-}
-
-.notifybutton {
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 40px;
-  margin-top: 25px;
-  cursor: pointer;
-  color: white;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(30px) saturate(120%);
-  -webkit-backdrop-filter: blur(30px) saturate(120%);
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  border-radius: 50em;
-  box-shadow:
-    0 8px 32px 0 rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 0 rgba(0, 0, 0, 0.01);
-  font-family: "Oswald", sans-serif;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  font-size: 1.5rem;
-  white-space: nowrap;
-}
-
-.notifybutton:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px);
-  box-shadow:
-    0 12px 40px 0 rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
-}
-
-@media (max-width: 768px) {
-  .notifyContainer {
-    width: 70%;
-  }
-
-  .notifyText {
-    font-size: 1.3em;
-    padding: 0 10px;
-  }
-
-  .notifybutton {
-    width: 80%;
-    padding: 10px 0;
-    font-size: 1.2rem;
-    margin-top: 20px;
-  }
-}
-
