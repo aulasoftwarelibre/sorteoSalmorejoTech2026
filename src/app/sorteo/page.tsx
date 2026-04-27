@@ -47,6 +47,10 @@ export default function Home() {
     setIsSpinning(true);
     setGanador(null);
 
+    if (trackRef.current) {
+      trackRef.current.style.transition = "none"; // Apagamos la animación
+      trackRef.current.style.transform = `translateX(0px)`; // Volvemos al origen
+    }
     const nuevaPista: string[] = [];
     for (let i = 0; i < 70; i++) {
       nuevaPista.push(participantes[Math.floor(Math.random() * participantes.length)]);
