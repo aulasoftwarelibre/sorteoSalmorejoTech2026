@@ -36,9 +36,6 @@ export default function body() {
           onChange={openFile}
         />
       </label>
-      {users.length > 0 && (
-        <p>Se han cargado {users.length} participantes.</p>
-      )}
     </div>
   );
 }
