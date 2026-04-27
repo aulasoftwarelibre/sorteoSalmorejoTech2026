@@ -76,6 +76,14 @@ export default function Home() {
       setTimeout(() => {
         setIsSpinning(false);
         setGanador(nombreGanador);
+        const indexDelGanador = participantes.findIndex(p => p === nombreGanador);
+        
+        if (indexDelGanador !== -1) {
+          const participantesActualizados = [...participantes];
+          participantesActualizados.splice(indexDelGanador, 1);
+          setParticipantes(participantesActualizados);
+          sessionStorage.setItem("participantesSorteo", JSON.stringify(participantesActualizados));
+        }
       }, 6000);
     }, 50);
   };
