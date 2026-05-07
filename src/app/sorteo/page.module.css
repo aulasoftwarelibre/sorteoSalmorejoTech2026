@@ -98,6 +98,63 @@
   text-align: center;
 }
 
+.controlsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.selectorWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50em;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.selectorLabel {
+    color: white;
+    font-family: "Oswald", sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.selector {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    color: white;
+    font-family: "Oswald", sans-serif;
+    font-size: 1.3rem;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 35px;
+}
+
+.selector:hover, .selector:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.selector option {
+    background: #ca8059;
+    color: white;
+}
+
+
 
 
 .winnerMessage {
@@ -106,7 +163,6 @@
   font-size: 2rem;
   margin-top: 2rem;
 }
-
 
 
 
@@ -186,3 +242,195 @@
     text-align: center;
 }
 
+
+/* Multi Winner Modal Styles */
+.multiModalOverlay {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease forwards;
+    overflow-y: auto;
+    padding: 5vh 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.multiModal {
+    background: linear-gradient(135deg, #e4684b 0%, #d14131 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease forwards;
+    color: white;
+    margin: 0 auto;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.confettiContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    animation: confettiFall 3s ease-in-out infinite;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(600px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.starsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    color: #ffe66d;
+    font-size: 1.5rem;
+    animation: starTwinkle 1.5s ease-in-out infinite;
+    text-shadow: 0 0 10px #ffe66d, 0 0 20px #ffe66d;
+}
+
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.multiModalTitle {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+}
+
+.winnersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.winnerCard {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: cardPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.winnerCard:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes cardPopIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.winnerNumber {
+    font-family: "Oswald", sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.winnerName {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+}
+
+.remainingText {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Oswald", sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.multiModal .close {
+    color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 100;
+    transition: all 0.3s ease;
+    text-shadow: none;
+}
+
+.multiModal .close:hover {
+    color: white;
+}
